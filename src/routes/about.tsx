@@ -4,7 +4,7 @@ import { btn, cls } from "@/components/ui-button";
 import aboutImg from "@/assets/about.jpg";
 
 const FROCK_2 = "/images/frock/Frock_2.png";
-const HALF_SAREE_3 = "/images/half-saree/Half_Saree_3.png";
+const BLOUSE_1 = "/images/blouse/Blouse_1.png";
 const HALF_SAREE_4 = "/images/half-saree/Half_Saree_4.png";
 const HAND_3 = "/images/hand-design/Hand_3.png";
 
@@ -48,8 +48,8 @@ const SHOWCASE_IMAGES = [
     className: "",
   },
   {
-    src: HALF_SAREE_3,
-    alt: "Sky blue contrast half saree",
+    src: BLOUSE_1,
+    alt: "Designer Blouse",
     className: "",
   },
   {
