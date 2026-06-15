@@ -1,0 +1,281 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Anada Fashions — Luxury Boutique Design System
+ *
+ * Palette
+ *  Deep Maroon  #6D071A  (primary)
+ *  Gold         #D4AF37  (accent)
+ *  White        #FFFFFF  (background)
+ *  Soft Cream   #FAF7F2  (secondary background)
+ *  Charcoal     #1F1F1F  (text)
+ *
+ * Type
+ *  Display: "Cormorant Garamond" (elegant high-contrast serif)
+ *  Body:    "Jost" (refined geometric sans)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-cream: var(--cream);
+  --color-maroon: var(--maroon);
+  --color-maroon-deep: var(--maroon-deep);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Jost", "Helvetica Neue", sans-serif;
+
+  --shadow-soft: 0 18px 40px -24px rgba(31, 31, 31, 0.28);
+  --shadow-elegant: 0 30px 60px -30px rgba(109, 7, 26, 0.35);
+  --shadow-gold: 0 10px 30px -10px rgba(212, 175, 55, 0.45);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --maroon: #6d071a;
+  --maroon-deep: #50050f;
+  --gold: #d4af37;
+  --gold-soft: #e7cd7e;
+  --cream: #faf7f2;
+
+  --background: #ffffff;
+  --foreground: #1f1f1f;
+
+  --card: #ffffff;
+  --card-foreground: #1f1f1f;
+
+  --popover: #ffffff;
+  --popover-foreground: #1f1f1f;
+
+  --primary: #6d071a;
+  --primary-foreground: #ffffff;
+
+  --secondary: #faf7f2;
+  --secondary-foreground: #1f1f1f;
+
+  --muted: #f4efe8;
+  --muted-foreground: #6b6258;
+
+  --accent: #d4af37;
+  --accent-foreground: #1f1f1f;
+
+  --destructive: #b3261e;
+  --destructive-foreground: #ffffff;
+
+  --border: #ece5da;
+  --input: #ece5da;
+  --ring: #d4af37;
+
+  --gradient-hero: linear-gradient(
+    135deg,
+    rgba(80, 5, 15, 0.92) 0%,
+    rgba(109, 7, 26, 0.78) 45%,
+    rgba(31, 31, 31, 0.55) 100%
+  );
+  --gradient-gold: linear-gradient(120deg, #d4af37 0%, #f1dd9c 50%, #c19a2e 100%);
+}
+
+.dark {
+  --background: #16100f;
+  --foreground: #f6f1e9;
+  --card: #1f1715;
+  --card-foreground: #f6f1e9;
+  --popover: #1f1715;
+  --popover-foreground: #f6f1e9;
+  --primary: #d4af37;
+  --primary-foreground: #1f1f1f;
+  --secondary: #241b19;
+  --secondary-foreground: #f6f1e9;
+  --muted: #241b19;
+  --muted-foreground: #b8aca0;
+  --accent: #d4af37;
+  --accent-foreground: #1f1f1f;
+  --border: rgba(246, 241, 233, 0.12);
+  --input: rgba(246, 241, 233, 0.16);
+  --ring: #d4af37;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--maroon-deep);
+  }
+}
+
+/* Refined utilities */
+@utility container-px {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+@utility text-gradient-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility gold-rule {
+  height: 1px;
+  width: 4rem;
+  background: var(--gradient-gold);
+}
+
+@utility card-hover {
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-elegant);
+  }
+}
+
+@utility hero-overlay {
+  background: var(--gradient-hero);
+}
+
+/* Animations */
+@keyframes anada-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anada-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes anada-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes anada-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@utility animate-fade-up {
+  animation: anada-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-zoom-in {
+  animation: anada-zoom-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-float {
+  animation: anada-float 3.6s ease-in-out infinite;
+}
+
+@utility animate-pulse-ring {
+  animation: anada-pulse-ring 2.4s ease-out infinite;
+}
+
+@utility anim-delay-100 {
+  animation-delay: 0.1s;
+}
+@utility anim-delay-200 {
+  animation-delay: 0.2s;
+}
+@utility anim-delay-300 {
+  animation-delay: 0.3s;
+}
+@utility anim-delay-400 {
+  animation-delay: 0.4s;
+}
+@utility anim-delay-500 {
+  animation-delay: 0.5s;
+}
